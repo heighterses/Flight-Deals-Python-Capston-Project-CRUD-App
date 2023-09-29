@@ -2,6 +2,7 @@ import requests
 from datetime import datetime, timedelta
 
 
+# ===========================================
 class FlightData:
     def __init__(self):
         self.api_key = "he25sRGsFvJBvfV5yu26YuQjkwub0LYg"
@@ -37,12 +38,14 @@ class FlightData:
         }
 
         data = requests.get(url=self.flight_search_url, params=flight_search_parameters, headers=headers)
-        data.raise_for_status()  # Raise an exception for 4xx and 5xx HTTP status codes
+        data.raise_for_status()
         response_data = data.json()
-        formatted = response_data['data'][0]['price']['total']
-        print(formatted)
+        formatted_fare = response_data['data'][0]['price']['total']
+        return formatted_fare
 
 
+'''
 tempo = FlightData()
 token_response = tempo.post_data()
 tempo.get_flight_fare(token_response.json().get("access_token"))
+'''

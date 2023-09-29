@@ -1,15 +1,27 @@
 import requests
 from flight_search import IATA_CODE_FINDER
+from flight_data import FlightData
+from datetime import datetime
 
-city_name = input("Enter City Name: ")
+# ====================Objects for Flight Fare===============
+get_fare = FlightData()
+token_response = get_fare.post_data()
+access_token = token_response.json().get("access_token")
+fare = get_fare.get_flight_fare(access_token)
+# ==========================================================
+
+
+city_name = "Jeddah"
 iata_finder = IATA_CODE_FINDER(city_name)
 post_data_sheets = {
     "price": {
         "city": city_name,
         "iataCode": iata_finder.iata_get_method(),
-        "lowestPrice": 56
+        "lowestPrice": fare
+
     }
 }
+
 
 # ---------------------------------------------------------
 
@@ -34,5 +46,6 @@ class DataManager:
         data = response.status_code
         print(data)
 
-temp = DataManager()
-temp.post_method()
+
+update_sheet = DataManager()
+update_sheet.post_method()

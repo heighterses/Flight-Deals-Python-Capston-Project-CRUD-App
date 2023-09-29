@@ -1,1 +1,14 @@
-#This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
+from data_manager import DataManager
+from notification_manager import NotificationManager
+
+# ====== Object of Updating Sheet ======
+
+update_sheet = DataManager()
+update_sheet.post_method()
+
+
+# ====== Object of Email Notifications ======
+
+notif_mail = NotificationManager()
+notif_mail.sending_mail()
+

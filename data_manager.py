@@ -47,5 +47,7 @@ class DataManager:
         print(data)
 
 
+'''
 update_sheet = DataManager()
 update_sheet.post_method()
+'''

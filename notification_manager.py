@@ -21,5 +21,7 @@ class NotificationManager:
                                 )
 
 
+'''
 send_email = NotificationManager()
 send_email.sending_mail()
+'''
